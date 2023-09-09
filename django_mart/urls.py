@@ -19,6 +19,7 @@ from django.urls import path,include
 from django.conf.urls.static import static
 from django.conf import settings
 from . import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
@@ -27,4 +28,5 @@ urlpatterns = [
     # path('category/',include('category.urls')),
     path('order/',include('orders.urls')),
     path('store/',include('store.urls')),
+    path('store/category/<slug:category_slug>/', views.nav_base, name='products_by_category'),
 ]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
