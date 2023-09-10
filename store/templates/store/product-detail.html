@@ -65,8 +65,13 @@
 							</div>
 						</div> <!-- row.// -->
 						<hr>
-						<a href="{% url 'cart' %}" class="btn  btn-primary"> <span class="text">Add to cart</span>
-							<i class="fas fa-shopping-cart"></i> </a>
+						<form method="post">
+							{% csrf_token %}
+							<a href="{% url 'add_to_cart' product.id %}" class="btn  btn-primary" type="submit"> <span
+									class="text">Add to
+									cart</span>
+								<i class="fas fa-shopping-cart"></i> </a>
+						</form>
 					</article> <!-- product-info-aside .// -->
 				</main> <!-- col.// -->
 			</div> <!-- row.// -->
